@@ -1,0 +1,267 @@
+/* --------------------------------------------------
+   DARK THEME
+-------------------------------------------------- */
+:root {
+    --bg-dark: #121212;
+    --bg-light: #1E1E1E;
+
+    --primary: #00BFA5;
+    --secondary: #FF4081;
+
+    --text-light: #E0E0E0;
+    --text-dim: #A8A8A8;
+
+    --border: #333;
+    --radius: 14px;
+
+    --loading-bg: #1f1f1f;
+    --loading-fill: #4FC3F7;
+}
+
+body {
+    margin: 0;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    font-family: "Roboto Mono", monospace;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --------------------------------------------------
+   HEADER
+-------------------------------------------------- */
+.app-header {
+    background: black;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border);
+}
+
+.app-header h1 {
+    color: #4FC3F7;
+    font-size: 26px;
+    font-weight: 900;
+}
+
+select {
+    padding: 10px 14px;
+    background: var(--bg-dark);
+    color: #4FC3F7;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+}
+
+/* --------------------------------------------------
+   CHAT AREA
+-------------------------------------------------- */
+#chat-container {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: auto;
+}
+
+/* --- BLACK SCROLLBAR --- */
+#chat-container::-webkit-scrollbar {
+    width: 10px;
+}
+#chat-container::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 10px;
+}
+
+/* --------------------------------------------------
+   SYSTEM MESSAGE (MODEL SWITCH)
+   -> NO blinking robot here (plain text)
+-------------------------------------------------- */
+.msg-system {
+    align-self: center;
+    background: #2f2f2f;
+    border-left: 4px solid #4FC3F7;
+    padding: 10px 16px;
+    color: #AEEAFF;
+    border-radius: var(--radius);
+    font-style: italic;
+    animation: fadePop 0.35s ease-out;
+}
+
+/* --------------------------------------------------
+   LOADING BAR (MODEL SWITCH)
+-------------------------------------------------- */
+.loading-bar {
+    width: 220px;
+    height: 10px;
+    background: var(--loading-bg);
+    border-radius: 10px;
+    margin: 8px auto 0;
+    overflow: hidden;
+    border: 2px solid #4FC3F7;
+    align-self: flex-start;
+}
+
+.loading-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--loading-fill);
+    animation: loadAnim 1.5s ease-out forwards;
+}
+
+@keyframes loadAnim {
+    0%   { width: 0%; }
+    40%  { width: 45%; }
+    70%  { width: 70%; }
+    100% { width: 100%; }
+}
+
+/* --------------------------------------------------
+   CHAT BUBBLES
+-------------------------------------------------- */
+.msg {
+    max-width: 75%;
+    padding: 14px 18px;
+    border-radius: var(--radius);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.msg-user {
+    align-self: flex-end;
+    background: var(--primary);
+    border: 2px solid var(--border);
+    color: white;
+    font-size: 15px;
+}
+
+.msg-ai {
+    align-self: flex-start;
+    background: steelblue;
+    border: 2px solid var(--border);
+    color: white;
+    font-size: 15px;
+}
+
+/* --------------------------------------------------
+   TYPING (blinking robot + dots)
+   -> robot-blink WILL animate
+-------------------------------------------------- */
+.typing {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.robot {
+    font-size: 20px;
+}
+
+/* blinking robot used inside typing bubble */
+.robot-blink {
+    font-size: 20px;
+    animation: robotBlink 1s infinite;
+}
+
+/* DOTS LOADING */
+.dot {
+    width: 10px;
+    height: 10px;
+    background: white;
+    opacity: 0.6;
+    border-radius: 50%;
+    animation: blink 1.3s infinite;
+}
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes robotBlink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.35; transform: scale(0.98); }
+}
+
+@keyframes blink {
+    0%, 80%, 100% { opacity: 0.25; }
+    40% { opacity: 1; }
+}
+
+/* --------------------------------------------------
+   CODE BLOCK
+-------------------------------------------------- */
+.code-wrapper {
+    position: relative;
+}
+
+.code-wrapper pre {
+    background: #0d0d0d;
+    padding: 14px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    overflow-x: auto;
+    margin-top: 12px;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    padding: 4px 8px;
+    font-size: 0.9rem;
+    border: 2px solid var(--secondary);
+    background: transparent;
+    color: var(--secondary);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.copy-btn:hover {
+    background: var(--secondary);
+    color: white;
+}
+
+/* --------------------------------------------------
+   INPUT BAR
+-------------------------------------------------- */
+.input-area {
+    display: flex;
+    background: var(--bg-light);
+    padding: 16px;
+    gap: 10px;
+    border-top: 2px solid var(--border);
+    font-size: 15px;
+}
+
+textarea {
+    flex: 1;
+    background: var(--bg-dark);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    color: white;
+    resize: none;
+    height: 60px;
+}
+
+#send-btn {
+    width: 75px;
+    height: 85px;
+    background: var(--primary);
+    border-radius: 70%;
+    border: none;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+/* --------------------------------------------------
+   ANIMATIONS
+-------------------------------------------------- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadePop {
+    0% { opacity: 0; transform: translateY(6px) scale(0.95); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
