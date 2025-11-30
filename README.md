@@ -1,3 +1,5 @@
+---
+
 # 🤖 AI DEBUGGING ASSISTANT - POWERED BY OLLAMA
 
 ---
@@ -7,11 +9,15 @@ It behaves like a senior debugging engineer — answering questions, guiding tro
 
 ---
 
-### 💬 CHAT UI SCREENSHOTS -
+## 💬 CHAT UI SCREENSHOTS -
 
 ---
 
 <img width="1893" height="882" alt="Screenshot 2025-11-27 124809" src="https://github.com/user-attachments/assets/4395313b-49bb-47d9-b6f6-1304972e9e74" />
+
+---
+
+## 🔧 DEBUG OUTPUT EXAMPLE - ON FRONTEND ISSUE
 
 ---
 
@@ -24,6 +30,10 @@ It behaves like a senior debugging engineer — answering questions, guiding tro
 ---
 
 <img width="1885" height="876" alt="Screenshot 2025-11-27 125233" src="https://github.com/user-attachments/assets/3f621778-ad4c-4835-84d7-2b3d45fb50af" />
+
+---
+
+## 🔄 SWITCHING LIVE LLM MODELS -
 
 ---
 
@@ -47,7 +57,7 @@ It behaves like a senior debugging engineer — answering questions, guiding tro
 
 ---
 
-### 🚀 FEATURES -
+## 🚀 FEATURES -
 
 ---
 
@@ -82,7 +92,9 @@ It behaves like a senior debugging engineer — answering questions, guiding tro
 
 ---
 
-### 🛠️ INSTALLATION GUIDE -
+## 🛠️ INSTALLATION GUIDE -
+
+---
 
 This project requires:
 
@@ -103,7 +115,7 @@ This project requires:
 
 ---
 
-### 🚀 SETUP AND RUN INSTRUCTIONS -
+## 🚀 SETUP AND RUN INSTRUCTIONS -
 
 ---
 
@@ -165,7 +177,7 @@ Just double-click it, or use Live Server in VS Code.
 
   - Backend/frontend issues
 
-The AI responds with formatted markdown, step headings, emojis, and copy-ready code blocks.
+The AI responds with formatted markdown, step headings, explanation and copy-ready code blocks.
 
 ---
 
@@ -181,22 +193,33 @@ The AI responds with formatted markdown, step headings, emojis, and copy-ready c
 
 4. Ollama generates debugging instructions, fixes, or code
 
-5. Response is rendered with markdown, code blocks, and animations
-
---
-
-### 📦 PROJECT STRUCTURE -
+5. Response is rendered with markdown, code blocks, and explanations
 
 ---
 
-         /backend
-            app.py
-         /frontend
-            index.html
-            chat.js
-            style.css
-         requirements.txt
-         README.md
+## 📦 PROJECT STRUCTURE -
+
+---
+
+🤖 AI Debugging Assistant — Powered by Ollama
+
+            ├── backend/
+            │   ├── app.py
+            ├── frontend/
+            │   ├── index.html
+            │   ├── style.css
+            │   ├── chat.js
+            ├── LICENSE
+            ├── README.md
+            ├── requirements.txt
+
+---
+
+## MIT LICENSE -
+
+---
+
+This project is licensed under the MIT License — see the LICENSE file for details.
 
 ---
 
