@@ -210,7 +210,7 @@ Install them using:
 
 ```bash
 
-fastapi
-uvicorn
-httpx
-pydantic
+        fastapi
+        uvicorn
+        httpx
+        pydantic
